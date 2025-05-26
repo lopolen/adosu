@@ -27,6 +27,12 @@ namespace osu.Game.Beatmaps.ControlPoints
             MaxValue = 10
         };
 
+        public readonly BindableDouble ApporoachRateBindable = new BindableDouble(1)
+        {
+            MinValue = 0.1,
+            MaxValue = 10
+        };
+
         /// <summary>
         /// Whether or not slider ticks should be generated at this control point.
         /// This exists for backwards compatibility with maps that abuse NaN slider velocity behavior on osu!stable (e.g. /b/2628991).
@@ -42,6 +48,12 @@ namespace osu.Game.Beatmaps.ControlPoints
         {
             get => SliderVelocityBindable.Value;
             set => SliderVelocityBindable.Value = value;
+        }
+
+        public double ApproachRate
+        {
+            get => ApporoachRateBindable.Value;
+            set => ApporoachRateBindable.Value = value;
         }
 
         public DifficultyControlPoint()
